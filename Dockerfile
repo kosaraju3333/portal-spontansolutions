@@ -21,7 +21,7 @@ RUN npm init -y
 RUN npm i express.js body-parser knex pg nodemon
 
 # Exposing port 3000
-EXPOSE 3000
+EXPOSE 4000
 
 # Executing command using CMD
 CMD ["pm2-runtime", "server.js"]
