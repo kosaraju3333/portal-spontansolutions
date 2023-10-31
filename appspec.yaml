@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+
+hooks:
+  BeforeInstall:
+    - location: Scripts/DownloadSourceCode_tar.sh
+    - location: Scripts/UntarSourceCode_tar.sh
+      runas: ubuntu
+ 
+  ApplicationStart:
+    - location: Scripts/portal-start.sh
+      timeout: 180
+      runas: ubuntu
