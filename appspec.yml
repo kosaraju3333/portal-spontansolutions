@@ -3,11 +3,11 @@ os: linux
 
 hooks:
   BeforeInstall:
-    - location: Scripts/DownloadSourceCode_tar.sh
-    - location: Scripts/UntarSourceCode_tar.sh
+    - location: scripts/DownloadSourceCode_tar.sh
+    - location: scripts/UntarSourceCode_tar.sh
       runas: ubuntu
  
   ApplicationStart:
-    - location: Scripts/portal-start.sh
+    - location: scripts/portal-start.sh
       timeout: 180
       runas: ubuntu
