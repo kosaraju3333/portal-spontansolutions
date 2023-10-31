@@ -5,9 +5,9 @@ hooks:
   BeforeInstall:
     - location: scripts/DownloadSourceCode_tar.sh
     - location: scripts/UntarSourceCode_tar.sh
-      runas: ubuntu
+      runas: root
  
   ApplicationStart:
     - location: scripts/portal-start.sh
       timeout: 180
-      runas: ubuntu
+      runas: root
