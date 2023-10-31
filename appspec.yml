@@ -3,8 +3,8 @@ os: linux
 
 hooks:
   BeforeInstall:
-    - location: scripts/DownloadSourceCode_tar.sh
-      timeout: 180
+    - location: scripts/download_code.sh
+    - location: scripts/unzip_code.sh
       runas: root
  
   ApplicationStart:
