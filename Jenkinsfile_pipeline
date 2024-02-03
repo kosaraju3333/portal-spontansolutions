@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    tools{
+        nodejs 'node-16.0.0'
+    }
+    stages{
+        stage('GIT'){
+            steps{
+                git changelog: false, poll: false, url: 'https://github.com/kosaraju3333/portal-spontansolutions.git'
+            }
+        }
+        stage('Build'){
+            steps{
+                sh "npm init -y"
+                sh "npm i express.js body-parser knex pg nodemon"
+            }
+        }
+        stage('Creating Artifact'){
+            steps {
+                sh "tar -czf portal-spontansolutions_test.tar.gz node_modules package.json public server.js"
+
+            }
+        }
+        stage('Uploading Artifact to S3 Bucket'){
+            steps {
+                sh "aws s3 cp portal-spontansolutions_test.tar.gz s3://portal-spontansolutions.com-freestyle-project"
+            }
+        }
+    }
+}
